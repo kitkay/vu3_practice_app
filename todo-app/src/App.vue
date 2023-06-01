@@ -1,26 +1,29 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
+<script setup>
+import TodoApp from "@/components/TodoApp.vue";
+import {onMounted, ref} from 'vue'
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+const pageTitle = ref('Vue3 TODO');
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+// Set the initial page title
+onMounted(() => {
+    document.title = pageTitle.value
+})
+
 </script>
+
+<template>
+    <router-link to="/about">About</router-link>
+    <TodoApp></TodoApp>
+    <router-view></router-view>
+</template>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
 }
 </style>
