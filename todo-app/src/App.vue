@@ -1,6 +1,7 @@
 <script setup>
 import TodoApp from "@/components/TodoApp.vue";
 import {onMounted, ref} from 'vue'
+import NavBar from "@/components/NavBar.vue";
 
 const pageTitle = ref('Vue3 TODO');
 
@@ -12,7 +13,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <router-link to="/about">About</router-link>
+    <NavBar/>
     <TodoApp></TodoApp>
     <router-view></router-view>
 </template>
