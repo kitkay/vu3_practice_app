@@ -1,0 +1,54 @@
+<template>
+    <div @dblclick="$emit('toggle-reminder', task.id)"
+         :class="[task.reminder ? 'reminder' : '', 'task']">
+        <h3>
+            {{ task.id }} <br />
+            {{ task.taskValue }}
+            <i @click="$emit('delete-task', task.id)"
+               class="fas fa-times">
+            </i>
+            <i @click="$emit('update-task', task.id)"
+                class="fas fa-pencil">
+            </i>
+        </h3>
+        <span>
+            {{ task.day }}
+        </span>
+    </div>
+</template>
+
+<script>
+export default {
+    name: "Task",
+    props: {
+        task: Object
+    },
+    methods: {}
+}
+</script>
+
+<style scoped>
+.fa-times {
+    color: red;
+    margin-right: 3px;
+}
+
+.fa-pencil {
+    color: green;
+}
+
+.task {
+    background: #f4f4f4;
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.task.reminder {
+    border-left: 5px solid green;
+}
+
+.task h3 {
+
+}
+</style>
