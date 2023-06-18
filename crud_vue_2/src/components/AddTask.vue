@@ -1,24 +1,26 @@
 <template>
-    <form @submit="onSubmit" class="add-form">
-        <div class="form-control">
-            <label>Task</label>
-            <input type="text" v-model="taskValue" name="text" placeholder="Add Task"/>
-        </div>
-        <div class="form-control">
-            <label>Day & Time</label>
-            <input type="text"
-                   v-model="day"
-                   name="day"
-                   placeholder="Add Day & Time"
-            />
-        </div>
-        <div class="form-control form-control-check">
-            <label>Set Reminder</label>
-            <input type="checkbox" v-model="reminder" name="reminder"/>
-        </div>
+    <div class="addForm">
+        <form @submit="onSubmit" class="add-form">
+            <div class="form-control">
+                <label>Task</label>
+                <input type="text" v-model="taskValue" name="text" placeholder="Add Task"/>
+            </div>
+            <div class="form-control">
+                <label>Day & Time</label>
+                <input type="text"
+                       v-model="day"
+                       name="day"
+                       placeholder="Add Day & Time"
+                />
+            </div>
+            <div class="form-control form-control-check">
+                <label>Set Reminder</label>
+                <input type="checkbox" v-model="reminder" name="reminder"/>
+            </div>
 
-        <Button buttonValue="Save Task" color="green" />
-    </form>
+            <Button buttonValue="Save Task" color="#000" class="saveBtn"/>
+        </form>
+    </div>
 </template>
 
 <script>
@@ -68,12 +70,27 @@ export default {
 </script>
 
 <style scoped>
+.addForm {
+    text-align: justify;
+    margin: 3px 30px;
+    width: auto !important;
+}
+
+.addTask {
+    background: green !important;
+}
+
+.addForm, label {
+    font-size: 12pt;
+    margin-left: 7px;
+}
+
 .add-form {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .form-control {
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .form-control label {
@@ -82,10 +99,10 @@ export default {
 
 .form-control input {
     width: 100%;
-    height: 40px;
-    margin: 5px;
-    padding: 3px 7px;
-    font-size: 17px;
+    height: 20px;
+    margin: 3px;
+    padding: 3px 5px;
+    font-size: 15px;
 }
 
 .form-control-check {
@@ -100,6 +117,12 @@ export default {
 
 .form-control-check input {
     flex: 2;
-    height: 20px;
+    height: 10px;
+}
+
+.saveBtn {
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 3px;
 }
 </style>

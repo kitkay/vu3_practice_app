@@ -1,8 +1,8 @@
 <template>
     <div @dblclick="$emit('toggle-reminder', task.id)"
          :class="[task.reminder ? 'reminder' : '', 'task']">
-        <h3>
-            {{ task.id }} <br />
+        <span>
+            {{ task.id }} -
             {{ task.taskValue }}
             <i @click="$emit('delete-task', task.id)"
                class="fas fa-times">
@@ -10,7 +10,7 @@
             <i @click="$emit('update-task', task.id)"
                 class="fas fa-pencil">
             </i>
-        </h3>
+        </span>
         <span>
             {{ task.day }}
         </span>
@@ -30,7 +30,7 @@ export default {
 <style scoped>
 .fa-times {
     color: red;
-    margin-right: 3px;
+    margin: 3px;
 }
 
 .fa-pencil {
@@ -39,8 +39,8 @@ export default {
 
 .task {
     background: #f4f4f4;
-    margin: 5px;
-    padding: 10px 20px;
+    margin-bottom: 1px;
+    padding: 1px 3px;
     cursor: pointer;
 }
 
@@ -48,7 +48,11 @@ export default {
     border-left: 5px solid green;
 }
 
-.task h3 {
-
+div {
+    margin: 3px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
 }
 </style>

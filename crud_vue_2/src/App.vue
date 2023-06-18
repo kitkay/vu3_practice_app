@@ -1,13 +1,13 @@
 <template>
-    <Header title="Task Tracker"/>
+    <span>
+        <Header title="Task Tracker"/>
+        <AddTasks @add-task="addTask"/>
+    </span>
 
-    <AddTasks @add-task="addTask" />
-
-    <Tasks
-            :tasks="tasks"
-            @toggle-reminder="toggleReminder"
-            @update-task="updateTask"
-            @delete-task="deleteTask"
+    <Tasks :tasks="tasks"
+           @toggle-reminder="toggleReminder"
+           @update-task="updateTask"
+           @delete-task="deleteTask"
     />
 </template>
 
@@ -82,6 +82,14 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+    border: 1px solid #000;
+    margin: 15px;
+    padding: 20px;
+    display: flex;
 }
+
+#app>span {
+    width: 50%;
+}
+
 </style>
