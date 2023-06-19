@@ -1,7 +1,13 @@
 <template>
     <span>
-        <Header title="Task Tracker"/>
-        <AddTasks @add-task="addTask"/>
+        <Header
+            @toggle-add-task="toggleAddTask"
+            title="Task Tracker"
+            :showAddTask="showAddTask"
+        />
+        <span v-if="showAddTask">
+            <AddTask @add-task="addTask"/>
+        </span>
     </span>
 
     <Tasks :tasks="tasks"
@@ -14,21 +20,25 @@
 <script>
 import Header from "@/components/Header.vue";
 import Tasks from "@/components/Tasks.vue";
-import AddTasks from "@/components/AddTask.vue";
+import AddTask from "@/components/AddTask.vue";
 
 export default {
     name: 'App',
     components: {
         Header,
         Tasks,
-        AddTasks
+        AddTask
     },
     data() {
         return {
             tasks: [],
+            showAddTask: false
         }
     },
     methods: {
+        toggleAddTask() {
+          this.showAddTask = !this.showAddTask
+        },
         addTask(task) {
             this.tasks = [...this.tasks, task];
         },
